@@ -1,25 +1,35 @@
-# SUSTech Beamer Template
+# SNNU Beamer Template
 
-LaTeX Beamer presentation template derived from the [MIT theme](https://github.com/jtriley/mit-beamer) by Justin Riley.
+陕西师范大学 (Shaanxi Normal University) 风格的 LaTeX Beamer 演示文稿模板,
+由 SUSTech Beamer 模板改写,配色与内容均已更换为陕师大主题。
 
-# Usage
+## 使用
 
-First clone the code using `git clone https://github.com/SUSTC/sustech-slides.git`
+编辑 `slides.tex` 修改内容,所有图片放在 `figures` 目录。
+校徽为 `figures/snnu-logo.png`:标题页自动缩放显示(高度为页面的 30%),
+每页页眉固定 0.5cm 高,调整见 `slides.tex` 中的 `\titlegraphic` 与 `\logo` 两行。
 
-Edit `slides.tex` to change the contents. Put all images in the `figures` directory. You can also embed videos (see `out/slides.tex` for details).
-
-Previewing can be done by `make` with xpdf, okular, or Acrobat Reader
+编译(需要 XeLaTeX 与 ctex 宏包,用于中文支持):
 
 ```
-make view-xpdf
-make view-okular
-make view-acroread
+make
 ```
 
-The above "make view-*" commands will automatically build $HOME/mit-beamer/out/slides.pdf if necessary
+生成 `out/slides.pdf` 后用任意 PDF 阅读器打开查看。
 
-For live reloading, run `python build-daemon.py`.
+其他命令:
 
-# Demo
+```
+make view-xpdf      # Linux: xpdf
+make view-okular    # Linux: okular
+make view-acroread  # Linux: acroread
+make clean
+```
 
-See `out/slides.pdf` for demo.
+实时监听自动重编译可运行(Python 3):
+
+```
+python build-daemon.py     # 前台运行,每 1 秒检查并重建
+python build-daemon.py -f  # Linux/macOS: 后台守护进程
+python build-daemon.py -k  # 终止守护进程
+```

@@ -1,27 +1,34 @@
 \documentclass{beamer}
 %\documentclass[handout,t]{beamer}
 
-\batchmode
 % \usepackage{pgfpages}
 % \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=5mm]
 
-\usepackage{amsmath,amssymb,enumerate,epsfig,bbm,calc,color,ifthen,capt-of,multimedia,hyperref}
+\usepackage{ctex}
+\usepackage{amsmath,amssymb,hyperref}
+\usepackage{tikz}
+
+% 中文使用微软雅黑,与 beamer 无衬线风格保持一致
+\setCJKmainfont{Microsoft YaHei}
+\setCJKsansfont{Microsoft YaHei}
 
 \usetheme{Berlin}
-\usecolortheme{sustech}
+\usecolortheme{snnu}
 
-\title{Reinventing the Wheel: Publishing High-quality Slides}
-\author{Fan Jiang}
-\institute{Southern Univ. of Science and Technology (SUSTech)}
+\title{陕西师范大学}
+\subtitle{厚德·积学·励志·敦行}
+\author{Your Name} % TODO: 替换为你的姓名
+\institute{Shaanxi Normal University (SNNU)}
 \date{\today}
-
-\pgfdeclareimage[height=0.5cm]{sustech-logo}{sustech-logo.pdf}
-\logo{\pgfuseimage{sustech-logo}\hspace*{0.3cm}}
+% 标题页校徽,高度随页面自动缩放
+\titlegraphic{\includegraphics[height=0.30\textheight]{figures/snnu-logo.png}}
+% 每页页眉小校徽,固定高度 0.5cm
+\logo{\includegraphics[height=0.5cm]{figures/snnu-logo.png}\hspace*{0.3cm}}
 
 \AtBeginSection[]
 {
   \begin{frame}<beamer>
-    \frametitle{Outline}
+    \frametitle{目录}
     \tableofcontents[currentsection]
   \end{frame}
 }
@@ -32,146 +39,152 @@
 
 \frame{\titlepage}
 
-\section[Outline]{}
-\begin{frame}{Outline}
+\section[目录]{}
+\begin{frame}{目录}
   \tableofcontents
 \end{frame}
 
 % -----------------------------------------------------------------------------
-\section{Introduction}
-\subsection{Who are we?}
-\begin{frame}{Who are we?}
+\section{学校概况}
+\begin{frame}{学校概况}
+  \begin{itemize}
+    \item 陕西师范大学(Shaanxi Normal University, SNNU)
+    \begin{itemize}
+      \item 教育部直属的全国重点大学
+      \item 国家"211 工程""双一流"建设高校
+      \item 国家教师教育"985 工程优势学科创新平台"
+    \end{itemize}
+    \item 坐落于古都西安
+    \begin{itemize}
+      \item 长安、雁塔两个校区
+      \item 中国西北地区教师教育的摇篮
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\section{历史沿革}
+\begin{frame}{历史沿革}
+  \begin{tikzpicture}
+    \draw[thick,snnudarkred] (0,0) -- (9.5,0);
+    \foreach \x/\up/\down in {
+      0.25/陕西省立师范专科学校/1944,
+      1.75/1954/更名西安师范学院,
+      3.25/合并定名陕西师范大学/1960,
+      4.75/1978/划归教育部直属,
+      6.25/入选"211 工程"/2005,
+      7.75/2017/首轮入选"双一流",
+      9.25/再次入选"双一流"/2022}
+    {
+      \node[circle,fill=snnudarkred,inner sep=0pt,minimum size=2.5mm] at (\x,0) {};
+      \node[above,align=center,text width=1.5cm,font=\scriptsize] at (\x,0.3) {\up};
+      \node[below,align=center,text width=1.5cm,font=\scriptsize\bfseries] at (\x,-0.3) {\down};
+    }
+  \end{tikzpicture}
+  \begin{itemize}
+    \item 前身是 1944 年成立的陕西省立师范专科学校
+    \item 1960 年,西安师范学院与陕西师范学院合并,定名为陕西师范大学
+    \item 1978 年划归教育部直属,为六所部属师范大学之一
+  \end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\section{学科建设}
+\begin{frame}{学科建设}
+  \begin{itemize}
+    \item 国家"双一流"建设学科:中国语言文学
+    \item 二级学科国家重点学科 4 个
+    \begin{itemize}
+      \item 历史地理学、中国古代史、中国古代文学、动物学
+    \end{itemize}
+    \item 学位授权体系
+    \begin{itemize}
+      \item 博士学位授权一级学科 25 个,硕士学位授权一级学科 35 个
+      \item 博士后科研流动站 20 个
+    \end{itemize}
+    \item 13 个学科进入 ESI 世界前 1\%,其中 3 个进入前 2\%
+  \end{itemize}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+\section{师资与人才培养}
+\begin{frame}{师资与人才培养}
   \begin{columns}[T] % align columns
-    \begin{column}<0->{.40\textwidth}
-      \begin{figure}[thpb]
-        \centering
-        \resizebox{1\linewidth}{!}{
-        \includegraphics{figures/sustech.pdf}
-        }
-        %\includegraphics[scale=1.0]{figurefile}
-        \caption{SUSTech Campus}
-        \label{fig:campus}
-      \end{figure}
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item 教职员工 3442 人
+        \begin{itemize}
+          \item 正高职称 679 人,副高职称 874 人
+          \item 博硕研究生导师 1697 人
+        \end{itemize}
+        \item 中国科学院院士 1 人,双聘院士 7 人
+      \end{itemize}
     \end{column}%
     \hfill%
-    \begin{column}<0->{.65\textwidth}
+    \begin{column}{0.48\textwidth}
       \begin{itemize}
-        \item<1-> Southern University of Science and Technology (SUSTech)
+        \item 在校学生规模(截至 2025 年 3 月)
         \begin{itemize}
-          \item<1-> Center of China's Education Reform
-        \end{itemize}
-        \item<2-> Shenzhen, the city of Makers
-        \begin{itemize}
-          \item<2-> The center of innovation in China
+          \item 全日制本科生 19000 余人
+          \item 研究生 12200 余人
+          \item 留学生 600 余人
         \end{itemize}
       \end{itemize}
     \end{column}%
   \end{columns}
 \end{frame}
-\subsection{Problem Statement}
-\begin{frame}{Problem scenario}
-  Getting things done is difficult
-  \begin{itemize}
-    \item Human beings subject to their natural tendency to procrastinate
-    \item Efforts are often in pure vain while hope is nowhere to be seen
-    \item You do not have a girlfriend :)
-  \end{itemize}
-\end{frame}
-\begin{frame}{State of the art}
-  \begin{itemize}
-    \item Current anti-procrastination systems lack raw force
-    \begin{itemize}
-      \item Pomodoro, GTD, etc.
-    \end{itemize}
-    \item Raw force are often misused and in the wrong hands
-    \item People usually try to avoid punishment by telling lies
-  \end{itemize}
-\end{frame}
+
 % -----------------------------------------------------------------------------
-\section{System Design}
-\subsection{System Architecture}
-\begin{frame}{System architecture}
-  \begin{columns}[T] % align columns
-    \begin{column}<0->{.48\textwidth}
-      \begin{figure}[thpb]
-        \centering
-        \resizebox{1\linewidth}{!}{
-        \includegraphics{figures/test.pdf}
-        }
-        %\includegraphics[scale=1.0]{figurefile}
-        \caption{System components}
-        \label{fig:system}
-      \end{figure}
-    \end{column}%
-    \hfill%
-    \begin{column}<0->{.48\textwidth}
-      \begin{itemize}
-        \item Electric Chair: Punishment
-        \item Sensor: Detect behavior
-        \item Handcuffs: Raw confinement
-      \end{itemize}
-    \end{column}%
-  \end{columns}
+\section{校区与环境}
+\begin{frame}{校区}
+  \begin{itemize}
+    \item 雁塔校区:西安市雁塔区长安南路 199 号
+    \begin{itemize}
+      \item 老校区,毗邻大雁塔,古色古香
+    \end{itemize}
+    \item 长安校区:西安市长安区西长安街 620 号
+    \begin{itemize}
+      \item 主校区,现代化的教学与科研设施
+    \end{itemize}
+  \end{itemize}
 \end{frame}
-\begin{frame}{Tracking Results}
-  \begin{columns}[T] % align columns
-    \begin{column}<0->{.48\textwidth}
-    \begin{figure}[thpb]
-      \centering
-      \resizebox{\linewidth}{!}{
-      \includegraphics{figures/loss.pdf}
-      }
-      %\includegraphics[scale=1.0]{figurefile}
-      \caption{Effect of Electric Shock}
-      \label{fig:stimulus}
-    \end{figure}
-    \end{column}
-    \begin{column}<0->{.48\textwidth}
-      \begin{itemize}
-        \item Electric shock indeed improves the memory of subjects
-        \item This is a big loss for Big Brother
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-\subsection{Demo}
-\begin{frame}{Demo}
-\movie[autostart,height=7.2cm, width=12.8cm]{video}{demo.mov}
-\end{frame}
+
 % -----------------------------------------------------------------------------
-\section{Recap}
-\subsection{Ongoing Study}
-\begin{frame}{Recap}
-  In the paper:
+\section{校园文化}
+\begin{frame}{校园文化}
   \begin{itemize}
-    \item Proposed an electric-shock-based memory enhancement system that
+    \item 校训:厚德、积学、励志、敦行
+    \item 校歌:《桃李香满园》
+    \item 校庆日:每年 10 月的第二个星期日
+    \item 特色传承
     \begin{itemize}
-      \item Uses handcuffs to confine user
-      \item Can maintain reliable performance in real-world conditions
-    \end{itemize}
-    \item Implemented such a system and proved that
-    \begin{itemize}
-      \item It really works\textsuperscript{TM}
+      \item 立足西部、服务基础教育的师范传统
+      \item 中华优秀传统文化传承基地(陕西皮影等)
     \end{itemize}
   \end{itemize}
 \end{frame}
-\subsection{Future Work}
-\begin{frame}{Future Work}
+
+% -----------------------------------------------------------------------------
+\section{小结}
+\begin{frame}{小结}
   \begin{itemize}
-    \item Get more people to try this
-    \item Benchmark the entire system in the wild
-    \item Profit!
+    \item 教育部直属、"211 工程""双一流"建设高校
+    \item 以教师教育为特色,立足西部、辐射全国
+    \item 校训:厚德、积学、励志、敦行
   \end{itemize}
 \end{frame}
-\begin{frame}{Thank you}
+
+\begin{frame}{感谢聆听}
   \begin{center}
-    \Huge Thank you for listening! (to this joke)
+    \Huge 感谢聆听!
   \end{center}
 \end{frame}
+
 \begin{frame}{Q\&A}
   \begin{center}
-    \Huge Questions?
+    \Huge 提问环节?
   \end{center}
 \end{frame}
+
 % -----------------------------------------------------------------------------
 \end{document}
